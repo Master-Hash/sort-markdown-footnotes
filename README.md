@@ -1,6 +1,6 @@
 ## Sort Markdown Footnotes
 
-This is a Python script to sort Markdown footnote markers like `[^fn1]` into
+This is a Python script to sort Markdown footnote markers like `[^1]` into
 their order of appearance in the text.
 
 It reads a Markdown file via standard input and tidies the containing
@@ -30,6 +30,14 @@ it in a standard Unix pipe way:
 
     cat ugly-text.markdown | sort_footnotes > beautiful-text.markdown
 
+如果需要在 Windows 下与 Powershell Core 一起使用：
+
+```powershell
+Get-Content ugly-text.md | python3 -X utf8 sort_footnotes.py
+```
+
+重定向 stdout 会有未知原因的乱码。
+
 #### Usage with Vim
 
 I defined the following mapping in my `.vimrc`:
@@ -52,6 +60,6 @@ happen, your footnotes will be eaten by a grue.
 
 
 [1]: https://github.com/derdennis/vim-markdownfootnotes
-[2]: https://raw.github.com/derdennis/sort-markdown-footnotes/master/footnote-sorting.gif
+[2]: ./footnote-sorting.gif
 [3]: http://www.leancrew.com/all-this/2012/09/tidying-markdown-reference-links/
 [4]: http://slipsum.com/
