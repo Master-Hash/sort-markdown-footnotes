@@ -2,6 +2,7 @@
 
 import re
 import sys
+from re import MULTILINE
 
 """
 Read a Markdown file via standard input and tidy the containing
@@ -21,7 +22,7 @@ happen, your footnotes will be eaten by a grue.
 link = re.compile(r"(?<!\n)(\[\^([\d]+)\])")
 
 # The regex for finding the footnote labels with the text.
-label = re.compile(r"(?<=\n)\[\^([\d]+)\]:\s?(.*)")
+label = re.compile(r"^\[\^([\d]+)\]:\s?(.+)", MULTILINE)
 
 
 def refrepl(m: re.Match[str]) -> str:
